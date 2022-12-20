@@ -6,13 +6,15 @@ import { create as IPFSHTTPClient } from 'ipfs-http-client'
 const projectId = process.env.REACT_APP_IPFS_ID
 const projectSecret = process.env.REACT_APP_IPFS_KEY
 
-const auth = 'Basic ' + Buffer.from(projectId + ":" + projectSecret).toString('base64');
+const auth =
+    'Basic ' +projectId + ':' + projectSecret;
+
 const client =  IPFSHTTPClient({
     host:'ipfs.infura.io',
     port:5001,
     protocol: 'https',
     headers: {
-      authorization: auth
+      authorization: auth,
     }
   });
 
